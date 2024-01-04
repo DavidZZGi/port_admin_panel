@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:port_admin_panel/widgets/bar_chart.dart';
 import 'package:port_admin_panel/widgets/card_title.dart';
 import 'package:port_admin_panel/widgets/container_body.dart';
+import 'package:port_admin_panel/widgets/jobs_state_widget.dart';
 import 'package:port_admin_panel/widgets/utilization_bar.dart';
 
 class LeftSection extends StatefulWidget {
@@ -14,44 +15,13 @@ class LeftSection extends StatefulWidget {
 class _LeftSectionState extends State<LeftSection> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         const CardWidget(title: 'Jobs'),
         const SizedBox(
           height: 10,
         ),
-        const ContainerBody(
-            child: Column(
-          children: [
-            ListTile(
-              title: Text('Active Jobs :'),
-              trailing: Chip(
-                label: Text(
-                  "20,500",
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Pending Jobs :'),
-              trailing: Chip(
-                label: Text(
-                  "1,500",
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Cancelled Jobs :'),
-              trailing: Chip(
-                label: Text(
-                  "500",
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ),
-          ],
-        )),
+        const ContainerBody(child: JobsStateWidget()),
         const SizedBox(
           height: 10,
         ),

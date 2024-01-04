@@ -1,51 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:port_admin_panel/widgets/number_card.dart';
 
 class EnvTable extends StatelessWidget {
   const EnvTable({super.key});
   final letterColor = Colors.black;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(), borderRadius: BorderRadius.circular(18)),
-      child: const Column(children: [
-        ListTile(
-          title: Text('Safety Incident :'),
-          trailing: Chip(
-            label: Text(
-              "20,500",
-              style: TextStyle(color: Colors.black),
-            ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Flexible(
+        child: DataTable(
+          dataTextStyle: const TextStyle(
+            fontSize: 12,
           ),
+
+          showCheckboxColumn: false, // Oculta la columna de checkbox
+
+          columns: [
+            const DataColumn(label: Text('Safety Incident :')),
+            DataColumn(
+                label: NumberCard(
+              number: 80500,
+            )),
+          ],
+          rows: [
+            DataRow(cells: [
+              const DataCell(Text('  Emissions Levels :',
+                  style: TextStyle(color: Colors.black))),
+              DataCell(NumberCard(
+                number: 20500,
+              )),
+
+              // Add other relevant cells here
+            ]),
+            DataRow(cells: [
+              const DataCell(Text(' Waste Managament :',
+                  style: TextStyle(color: Colors.black))),
+              DataCell(NumberCard(
+                number: 10000,
+              )),
+
+              // Add other relevant cells here
+            ]),
+            DataRow(cells: [
+              const DataCell(Text('Energy Consumption :',
+                  style: TextStyle(color: Colors.black))),
+              DataCell(NumberCard(
+                number: 10000,
+              )),
+
+              // Add other relevant cells here
+            ]),
+            DataRow(cells: [
+              const DataCell(Text(' Energy Consumption :',
+                  style: TextStyle(color: Colors.black))),
+              DataCell(NumberCard(
+                number: 10000,
+              )),
+
+              // Add other relevant cells here
+            ]),
+
+            // Add more rows as needed
+          ],
         ),
-        ListTile(
-          title: Text('Emissions Levels :'),
-          trailing: Chip(
-            label: Text(
-              "1,500",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-        ),
-        ListTile(
-          title: Text('Waste Managament :'),
-          trailing: Chip(
-            label: Text(
-              "500",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-        ),
-        ListTile(
-          title: Text('Energy Consumption :'),
-          trailing: Chip(
-            label: Text(
-              "500",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-        ),
-      ]),
+      ),
     );
   }
 }
