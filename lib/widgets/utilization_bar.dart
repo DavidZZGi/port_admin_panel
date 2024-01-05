@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:port_admin_panel/widgets/triangle_icon.dart';
 
 class UtilizationRow extends StatelessWidget {
   final String title;
@@ -13,26 +14,35 @@ class UtilizationRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(18.0),
+      padding: const EdgeInsets.all(16.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text(
               title,
               style:
-                  const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                  const TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 6),
           Expanded(
             child: Container(
               height: 30.0,
+              width: 200.0,
               decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(5.0),
-                  color: const Color.fromARGB(255, 189, 188, 188)),
+                  color: const Color.fromARGB(255, 255, 255, 255)),
               child: FractionallySizedBox(
                 alignment: AlignmentDirectional.centerStart,
                 widthFactor: utilizationPercentage / 100.0,
@@ -51,6 +61,10 @@ class UtilizationRow extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: UpwardTriangleIcon(),
+          )
         ],
       ),
     );

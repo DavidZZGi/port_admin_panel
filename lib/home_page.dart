@@ -22,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
               portName: 'Port Liberty Harbor',
               utlNumber: '35',
             ),
+            Divider(),
             Row(
               children: [
                 Expanded(child: LeftSection()),

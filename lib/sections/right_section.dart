@@ -16,24 +16,30 @@ class RightSection extends StatefulWidget {
 class _LeftSectionState extends State<RightSection> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        CardWidget(title: 'Weather'),
-        SizedBox(
+        const CardWidget(title: 'Weather'),
+        const SizedBox(
           height: 10,
         ),
-        ContainerBody(
-          child: WeatherChart(),
-        ),
         SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.28,
+          child: const ContainerBody(
+            child: WeatherChart(),
+          ),
+        ),
+        const SizedBox(
           height: 10,
         ),
-        CardWidget(title: 'Enviromental Metrics'),
-        SizedBox(
+        const CardWidget(title: 'Enviromental Metrics'),
+        const SizedBox(
           height: 10,
         ),
-        ContainerBody(
-          child: EnvTable(),
+        SizedBox(
+          width: MediaQuery.sizeOf(context).width * 0.3,
+          child: const ContainerBody(
+            child: EnvTable(),
+          ),
         )
       ],
     );
